@@ -7,7 +7,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
-public class Main1 {
+public class Main1 {    
     
     public static void main(String[] args) {
         try (Stream<String> linies = Files.lines(Paths.get("c:\\temp\\vehicles.csv"))) {
@@ -33,4 +33,3 @@ public class Main1 {
         }
     }
 }
-

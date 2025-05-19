@@ -32,6 +32,5 @@ public class Main4 {
         } catch (IOException | SQLException e) {
             e.printStackTrace();
         }
-    }
-    
+    }   
 }

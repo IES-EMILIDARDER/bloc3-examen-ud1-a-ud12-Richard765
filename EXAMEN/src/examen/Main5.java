@@ -1,17 +1,12 @@
 package examen;
 
-import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Paths;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.stream.Stream;
 
 public class Main5 {
-    
     
     private static final String SERVER = "jdbc:mysql://192.168.126.245:3306/";
     private static final String DBASE = "gbd";
@@ -29,9 +24,9 @@ public class Main5 {
 
             if (vehicleExisteix(conn, model)) {
                 insertarVehicle(conn, marca, model, any, preu);
-                System.out.println("Vehiculo insertado correctamente.");
+                System.out.println("Vehiculo ha sido insertado correctamente.");
             } else {
-                System.out.println("El vehiculo con marca " + marca + " no existe.");
+                System.out.println("El vehiculo con marca [" + marca + "] no existe.");
             }
 
             conn.close();
@@ -45,11 +40,10 @@ public class Main5 {
         try (PreparedStatement pstmt = conn.prepareStatement(sql)) {
             pstmt.setString(1, model);
             try (ResultSet rs = pstmt.executeQuery()) {
-                return rs.next(); // Retorna true si hay al menos una fila
+                return rs.next(); 
             }
         }
     }    
-        
         
     private static void insertarVehicle(Connection conn, String marca, String model, int any, int preu) throws SQLException {
         String sql = "INSERT INTO empleados (marca, model, any, preu) VALUES (?, ?, ?, ?)";
